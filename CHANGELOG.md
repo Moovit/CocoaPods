@@ -29,6 +29,9 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
 * Fix a bug where an incremental install missed library resources.  
   [Igor Makarov](https://github.com/igor-makarov)
   [#9431](https://github.com/CocoaPods/CocoaPods/pull/9431)
+* When pod target is a static framework, save time by copying compiled resources  
+  [Igor Makarov](https://github.com/igor-makarov)
+  [#9441](https://github.com/CocoaPods/CocoaPods/pull/9441)
 
 ## 1.9.0.beta.2 (2019-12-17)
 
