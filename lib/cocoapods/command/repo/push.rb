@@ -31,7 +31,6 @@ module Pod
             ['--no-private', 'Lint includes checks that apply only to public repos'],
             ['--skip-import-validation', 'Lint skips validating that the pod can be imported'],
             ['--skip-tests', 'Lint skips building and running tests during validation'],
-            ['--test-specs=test-spec1,test-spec2,etc', 'List of test specs to run'],
             ['--commit-message="Fix bug in pod"', 'Add custom commit message. Opens default editor if no commit ' \
               'message is specified'],
             ['--use-json', 'Convert the podspec to JSON before pushing it to the repo'],
@@ -57,7 +56,6 @@ module Pod
           @swift_version = argv.option('swift-version', nil)
           @skip_import_validation = argv.flag?('skip-import-validation', false)
           @skip_tests = argv.flag?('skip-tests', false)
-          @test_specs = argv.option('test-specs', nil).try(:split, ',')
           @allow_overwrite = argv.flag?('overwrite', true)
           super
         end
@@ -143,7 +141,6 @@ module Pod
             validator.swift_version = @swift_version
             validator.skip_import_validation = @skip_import_validation
             validator.skip_tests = @skip_tests
-            validator.test_specs = @test_specs
             begin
               validator.validate
             rescue => e
